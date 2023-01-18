@@ -17,7 +17,8 @@ public class LoginPage extends BaseTest {
         PageFactory.initElements(driverPage, this);
     }
 
-    @FindBy(id = "com.example.fpsynrgy:id/textView")
+//    @FindBy(id = "com.example.fpsynrgy:id/textView")
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[1]")
     WebElement loginTitle;
 
     @FindBy(id = "com.example.fpsynrgy:id/etLoginEmail")

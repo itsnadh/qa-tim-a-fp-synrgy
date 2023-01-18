@@ -9,41 +9,46 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 public class BaseTest {
 
-    protected static AndroidDriver driver;
+//    protected static AndroidDriver driver;
+    public static AppiumDriver<MobileElement> driver;
 
     public static void setup() throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
 
         // SETUP HP ITSNA
-
-        cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
-        cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12");
-        cap.setCapability(MobileCapabilityType.DEVICE_NAME, "1t5n4dh");
-        cap.setCapability(MobileCapabilityType.UDID, "aeddd417");
+//
+//        cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
+//        cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12");
+//        cap.setCapability(MobileCapabilityType.DEVICE_NAME, "1t5n4dh");
+//        cap.setCapability(MobileCapabilityType.UDID, "aeddd417");
 
         // SETUP HP TIARA
 
-        // cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
-        // cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12");
-        // cap.setCapability(MobileCapabilityType.DEVICE_NAME, "1t5n4dh");
-        // cap.setCapability(MobileCapabilityType.UDID, "aeddd417");
+         cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
+         cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
+         cap.setCapability(MobileCapabilityType.DEVICE_NAME, "1819");
+         cap.setCapability(MobileCapabilityType.UDID, "HIAYS4FYOB6TYHT4");
 
         // SET CAPABILITY APP
         cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
         cap.setCapability("appium:appPackage", "com.example.fpsynrgy");
         cap.setCapability("appium:appActivity", "com.example.fpsynrgy.AuthActivity");
+//        cap.setCapability("appium:appActivity", "com.example.fpsynrgy.MainActivity");
 
-        driver = new AndroidDriver(cap);
+        URL url = new URL("http://0.0.0.0:4725/wd/hub");
+        driver = new AppiumDriver<MobileElement>(url, cap);
+//        driver = new AndroidDriver(cap);
         System.out.println("Setup Done!!!");
     }
 
-    public static void teardown() {
-        driver.quit();
-    }
+//    public static void teardown() {
+//        driver.quit();
+//    }
 
     public void scrollDisplay(AppiumDriver<MobileElement> driverParam, int startX, int startY, int endX, int endY) {
         TouchAction<?> action = new TouchAction<>(driverParam);

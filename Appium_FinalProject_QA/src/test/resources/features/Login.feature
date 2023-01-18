@@ -14,8 +14,9 @@ Feature: Login
         Examples:
             | username                    | password   |
             | "synrgy_user_5@yopmail.com" | "password" |
+            | "synrgy_user_4@yopmail.com" | "password" |
 
-    @negative-case
+#    @negative-case
 #    Scenario Outline: Login with invalid credentials
 #        When User input invalid Username <username>
 #        And User input invalid Password <password>
@@ -28,4 +29,3 @@ Feature: Login
 #            | synrgy_user_@yopmail.com  | password | Login |
 #            |                           | password | Login |
 #            | synrgy_user_5yopmail.com  |          | Login |
-
