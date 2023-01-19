@@ -37,5 +37,36 @@ public class RegisterPage extends BaseTest {
     @FindBy(id = "com.example.fpsynrgy:id/btnRegister")
     WebElement registerBtn;
 
+    public void onRegisterPage() {
+
+    }
+
+    public void inputRegFirstName(String fName) {
+        firstNameField.sendKeys(fName);
+    }
+
+    public void inputRegLastName(String lName) {
+        lastNameField.sendKeys(lName);
+    }
+
+    public void inputRegPhoneNumber(String phoneNumber) {
+        phoneNumberField.sendKeys(phoneNumber);
+    }
+
+    public void inputRegEmail(String email) {
+        emailField.sendKeys(email);
+    }
+
+    public void inputRegPassword(String password) {
+        passwordField.sendKeys(password);
+    }
+
+    public void inputRegConfirmPassword(String confirmPass) {
+        confirmPasswordField.sendKeys(confirmPass);
+    }
+
+    public void clickRegisterBtn() {
+        registerBtn.click();
+    }
 
 }

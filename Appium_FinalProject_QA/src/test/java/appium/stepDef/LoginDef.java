@@ -18,13 +18,13 @@ public class LoginDef extends BaseTest {
         System.out.println("User is on Login page");
     }
 
-    @When("User input valid Username {string}")
+    @When("User input Username {string}")
     public void inputUsername(String email) {
         lp.inputEmail(email);
         System.out.println("User input Username");
     }
 
-    @And("User input valid Password {string}")
+    @And("User input Password {string}")
     public void inputPassword(String password) {
         lp.inputPassword(password);
         System.out.println("User input Password");
@@ -42,4 +42,9 @@ public class LoginDef extends BaseTest {
         System.out.println("User is on Home page");
     }
 
+
+    @Then("User see error message show")
+    public void errorMessageShow() {
+        //nanti validasi error msg di sini
+    }
 }

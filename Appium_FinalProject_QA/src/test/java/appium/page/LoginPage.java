@@ -27,7 +27,7 @@ public class LoginPage extends BaseTest {
     @FindBy(id = "com.example.fpsynrgy:id/etLoginPass")
     WebElement passField;
 
-    @FindBy(id = "com.example.fpsynrgy:id/etLoginPass")
+    @FindBy(id = "com.example.fpsynrgy:id/btnLogin")
     WebElement loginBtn;
 
     @FindBy(id = "com.example.fpsynrgy:id/ctaToRegister")

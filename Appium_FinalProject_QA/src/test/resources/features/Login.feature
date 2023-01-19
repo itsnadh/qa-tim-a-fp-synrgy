@@ -7,8 +7,8 @@ Feature: Login
 
     @positive-test
     Scenario Outline: Login with valid credentials
-        When User input valid Username <username>
-        And User input valid Password <password>
+        When User input Username <username>
+        And User input Password <password>
         And User click Login button
         Then User is on Home page
         Examples:
@@ -16,16 +16,15 @@ Feature: Login
             | "synrgy_user_5@yopmail.com" | "password" |
             | "synrgy_user_4@yopmail.com" | "password" |
 
-#    @negative-case
-#    Scenario Outline: Login with invalid credentials
-#        When User input invalid Username <username>
-#        And User input invalid Password <password>
-#        And User click Login button
-#        Then User in on page <page>
-#        Examples:
-#            | username                  | password | page  |
-#            | synrgy_user_5@yopmail.com | wrongpas | Login |
-#            | synrgy_user_5yopmail.com  | password | Login |
-#            | synrgy_user_@yopmail.com  | password | Login |
-#            |                           | password | Login |
-#            | synrgy_user_5yopmail.com  |          | Login |
+    @negative-case
+    Scenario Outline: Login with invalid credentials
+        When User input Username <username>
+        And User input Password <password>
+        And User click Login button
+        Then User see error message show
+        And User is on Login page
+        Examples:
+            | username                    | password    |
+            | "wrongformatemail.com"      | "password"  |
+            | "unlistedemail@email.com"   | "password"  |
+            | "synrgy_user_4@yopmail.com" | "wrongpass" |

@@ -19,8 +19,14 @@ public class HomePage extends BaseTest {
     @FindBy(id = "com.example.fpsynrgy:id/homeFragment")
     WebElement homeMenu;
 
+    @FindBy(id = "com.example.fpsynrgy:id/navigation_bar_item_large_label_view")
+    WebElement homeMenuText;
+
+
     public void onHomePage(){
-        homeMenu.isSelected();
+//        homeMenu.isSelected();
+        System.out.println(homeMenuText.getText());
+        homeMenuText.isSelected();
     }
 
     public void clickHome(){
