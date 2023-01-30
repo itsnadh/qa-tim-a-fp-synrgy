@@ -21,7 +21,7 @@ Feature: Login
         When User input Username <username>
         And User input Password <password>
         And User click Login button
-        Then User see error message show
+        Then User see failed to login message
         And User is on Login page
         Examples:
             | username                    | password    |

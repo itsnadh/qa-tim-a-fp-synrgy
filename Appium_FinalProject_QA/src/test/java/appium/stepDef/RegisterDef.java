@@ -19,32 +19,32 @@ public class RegisterDef extends BaseTest {
 
     }
 
-    @When("User input First Name {string}")
+    @When("User input First Name {string} on register form")
     public void inputRegFirstName(String firstName) {
         rp.inputRegFirstName(firstName);
     }
 
-    @And("User input Last Name {string}")
+    @And("User input Last Name {string} on register form")
     public void inputRegLastName(String lastName) {
         rp.inputRegLastName(lastName);
     }
 
-    @And("User input Phone Number {string}")
+    @And("User input Phone Number {string} on register form")
     public void inputRegPhoneNumber(String phoneNumber) {
         rp.inputRegPhoneNumber(phoneNumber);
     }
 
-    @And("User input Email {string}")
+    @And("User input Email {string} on register form")
     public void inputRegEmail(String email) {
         rp.inputRegEmail(email);
     }
 
-    @And("User input Password {string}")
+    @And("User input Password {string} on register form")
     public void inputRegPassword(String password) {
         rp.inputRegPassword(password);
     }
 
-    @And("User input Confirm Password {string}")
+    @And("User input Confirm Password {string} on register form")
     public void inputRegConfirmPassword() {
         rp.inputRegConfirmPassword(null);
     }
@@ -52,5 +52,10 @@ public class RegisterDef extends BaseTest {
     @And("User click Register button")
     public void clickRegisterBtn() {
         rp.clickRegisterBtn();
+    }
+
+    @And("User see failed to register message")
+    public void errorMessageShow(){
+        //nanti disini assert error msg nya
     }
 }
