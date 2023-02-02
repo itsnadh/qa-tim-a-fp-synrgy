@@ -25,17 +25,17 @@ public class BaseTest {
 
         // SETUP HP ITSNA
 
-        cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
-        cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12");
-        cap.setCapability(MobileCapabilityType.DEVICE_NAME, "1t5n4dh");
-        cap.setCapability(MobileCapabilityType.UDID, "aeddd417");
+//        cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
+//        cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12");
+//        cap.setCapability(MobileCapabilityType.DEVICE_NAME, "1t5n4dh");
+//        cap.setCapability(MobileCapabilityType.UDID, "aeddd417");
 
         // SETUP HP TIARA
 
-        // cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
-        // cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
-        // cap.setCapability(MobileCapabilityType.DEVICE_NAME, "1819");
-        // cap.setCapability(MobileCapabilityType.UDID, "HIAYS4FYOB6TYHT4");
+         cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
+         cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
+         cap.setCapability(MobileCapabilityType.DEVICE_NAME, "1819");
+         cap.setCapability(MobileCapabilityType.UDID, "HIAYS4FYOB6TYHT4");
 
         // SET CAPABILITY APP
         cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
