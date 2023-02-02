@@ -16,21 +16,12 @@ public class HomePage extends BaseTest {
         PageFactory.initElements(driverPage, this);
     }
 
-    @FindBy(id = "com.example.fpsynrgy:id/homeFragment")
-    WebElement homeMenu;
+    @FindBy(id = "com.example.fpsynrgy:id/textView47")
+    WebElement cariKosanText;
 
-    @FindBy(id = "com.example.fpsynrgy:id/navigation_bar_item_large_label_view")
-    WebElement homeMenuText;
+    public void onHomePage() {
+        var text = cariKosanText.getText();
 
-
-    public void onHomePage(){
-//        homeMenu.isSelected();
-        System.out.println(homeMenuText.getText());
-        homeMenuText.isSelected();
+        Assert.assertEquals(text, "Cari kosan terbaik dari kami");
     }
-
-    public void clickHome(){
-
-    }
-
 }

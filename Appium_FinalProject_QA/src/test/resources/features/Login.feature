@@ -5,7 +5,7 @@ Feature: Login
     Background: Login
         Given User is on Welcome page
         When User click Penyedia kos
-        And User is on login page 
+        And User is on Login page
 
     @positive-test
     Scenario Outline: Login with valid credentials
