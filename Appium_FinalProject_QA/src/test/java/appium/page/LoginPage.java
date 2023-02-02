@@ -17,14 +17,13 @@ public class LoginPage extends BaseTest {
         PageFactory.initElements(driverPage, this);
     }
 
-//    @FindBy(id = "com.example.fpsynrgy:id/textView")
-    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[1]")
-    WebElement loginTitle;
+    @FindBy(id = "com.example.fpsynrgy:id/textView4")
+    WebElement silakanText;
 
-    @FindBy(id = "com.example.fpsynrgy:id/etLoginEmail")
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.EditText")
     WebElement emailField;
 
-    @FindBy(id = "com.example.fpsynrgy:id/etLoginPass")
+    @FindBy(id = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.EditText")
     WebElement passField;
 
     @FindBy(id = "com.example.fpsynrgy:id/btnLogin")
@@ -45,9 +44,9 @@ public class LoginPage extends BaseTest {
     // methods & functions
 
     public void validateOnLoginPage() {
-        var titlePage = loginTitle.getText();
+        var text = silakanText.getText();
 
-        Assert.assertEquals(titlePage, "Login");
+        Assert.assertEquals(text, "Silahkan untuk login");
     }
 
     public void inputEmail(String email) {

@@ -7,21 +7,33 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import appium.BaseTest;
 import appium.page.LoginPage;
+import appium.page.WelcomePage;
 
 public class LoginDef extends BaseTest {
+    WelcomePage wp = new WelcomePage();
     LoginPage lp = new LoginPage();
     HomePage hp = new HomePage();
 
-    @Given("User is on Login page")
+    @Given("User is on Welcome page")
+    public void onWelcomePage() {
+        wp.validateOnWelcomePage();
+    }
+
+    @And("User click Penyedia kos")
+    public void loginAsSeeker() {
+        wp.loginAsSeeker();
+    }
+
+    @And("User is on Login page")
     public void onLoginPage() {
         lp.validateOnLoginPage();
         System.out.println("User is on Login page");
     }
 
-    @When("User input Username {string}")
-    public void inputUsername(String email) {
+    @When("User input Email {string}")
+    public void inputEmail(String email) {
         lp.inputEmail(email);
-        System.out.println("User input Username");
+        System.out.println("User input Email");
     }
 
     @And("User input Password {string}")
@@ -42,9 +54,8 @@ public class LoginDef extends BaseTest {
         System.out.println("User is on Home page");
     }
 
-
     @Then("User see failed to login message")
     public void errorMessageShow() {
-        //nanti validasi error msg di sini
+        // nanti validasi error msg di sini
     }
 }
