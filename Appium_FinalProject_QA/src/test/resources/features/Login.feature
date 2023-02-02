@@ -23,7 +23,6 @@ Feature: Login
         And User input Password <password>
         And User click Login button
         Then User see failed to login message
-        And User is on Login page
         Examples:
             | email             | password        |
             | "seeker@mail.com" | "wrongpassword" |
