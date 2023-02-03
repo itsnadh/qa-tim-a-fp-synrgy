@@ -16,6 +16,9 @@ public class RegisterPage extends BaseTest {
         PageFactory.initElements(driverPage, this);
     }
 
+    @FindBy(id = "com.example.fpsynrgy:id/textView15")
+    WebElement yukDaftarText;
+
     @FindBy(id = "com.example.fpsynrgy:id/etRegisterFName")
     WebElement firstNameField;
 
@@ -31,14 +34,16 @@ public class RegisterPage extends BaseTest {
     @FindBy(id = "com.example.fpsynrgy:id/etRegisterPassword")
     WebElement passwordField;
 
-    @FindBy(id = "com.example.fpsynrgy:id/etRegisterPassword")
+    @FindBy(id = "com.example.fpsynrgy:id/etRegisterRePassword")
     WebElement confirmPasswordField;
 
     @FindBy(id = "com.example.fpsynrgy:id/btnRegister")
     WebElement registerBtn;
 
-    public void onRegisterPage() {
+    public void ValidateOnRegisterPage() {
+        var text = yukDaftarText.getText();
 
+        Assert.assertEquals(text, "Yuk daftar agar bisa cari kos dengan nyaman dan cepat");
     }
 
     public void inputRegFirstName(String fName) {

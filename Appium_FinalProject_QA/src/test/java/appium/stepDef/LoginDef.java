@@ -56,6 +56,6 @@ public class LoginDef extends BaseTest {
 
     @Then("User see failed to login message")
     public void errorMessageShow() {
-        // nanti validasi error msg di sini
+        lp.errorShow();
     }
 }

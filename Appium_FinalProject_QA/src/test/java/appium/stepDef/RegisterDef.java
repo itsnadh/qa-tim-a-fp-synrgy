@@ -8,18 +8,25 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import appium.BaseTest;
 import appium.page.RegisterPage;
+import appium.page.VerificationPage;
 
 public class RegisterDef extends BaseTest {
     RegisterPage rp = new RegisterPage();
     LoginPage lp = new LoginPage();
     HomePage hp = new HomePage();
+    VerificationPage vp = new VerificationPage();
 
-    @Given("User is on Register page")
-    public void onRegisterPage() {
-
+    @And("User click Daftar Yuk!")
+    public void clickDaftar() {
+        lp.clickRegister();
     }
 
-    @When("User input First Name {string} on register form")
+    @And("User is on Register page")
+    public void onRegisterPage() {
+        rp.ValidateOnRegisterPage();
+    }
+
+    @And("User input First Name {string} on register form")
     public void inputRegFirstName(String firstName) {
         rp.inputRegFirstName(firstName);
     }
@@ -45,8 +52,8 @@ public class RegisterDef extends BaseTest {
     }
 
     @And("User input Confirm Password {string} on register form")
-    public void inputRegConfirmPassword() {
-        rp.inputRegConfirmPassword(null);
+    public void inputRegConfirmPassword(String confirmPassword) {
+        rp.inputRegConfirmPassword(confirmPassword);
     }
 
     @And("User click Register button")
@@ -54,8 +61,8 @@ public class RegisterDef extends BaseTest {
         rp.clickRegisterBtn();
     }
 
-    @And("User see failed to register message")
-    public void errorMessageShow(){
-        //nanti disini assert error msg nya
+    @Then("User is on Verification page")
+    public void validateOnVerificationPage() {
+        vp.validateOnVerificationPage();
     }
 }

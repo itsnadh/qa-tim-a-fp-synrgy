@@ -41,6 +41,9 @@ public class LoginPage extends BaseTest {
     @FindBy(id = "com.example.fpsynrgy:id/button2")
     WebElement fbBtn;
 
+    @FindBy(id = "com.example.fpsynrgy:id/textinput_error")
+    WebElement errorText;
+
     // methods & functions
 
     public void validateOnLoginPage() {
@@ -75,5 +78,9 @@ public class LoginPage extends BaseTest {
 
     public void clickLoginFb() {
         fbBtn.click();
+    }
+
+    public void errorShow() {
+        errorText.isDisplayed();
     }
 }
