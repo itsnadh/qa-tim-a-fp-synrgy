@@ -25,7 +25,7 @@ public class RegisterPage extends BaseTest {
     @FindBy(id = "com.example.fpsynrgy:id/etRegisterLName")
     WebElement lastNameField;
 
-    @FindBy(id = "com.example.fpsynrgy:id/etRegisterLName")
+    @FindBy(id = "com.example.fpsynrgy:id/etRegisterPhone")
     WebElement phoneNumberField;
 
     @FindBy(id = "com.example.fpsynrgy:id/etRegisterEmail")
