@@ -1,0 +1,5 @@
+@logout
+
+Feature: logout
+
+    Background: 

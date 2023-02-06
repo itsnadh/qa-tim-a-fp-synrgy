@@ -19,9 +19,16 @@ public class HomePage extends BaseTest {
     @FindBy(id = "com.example.fpsynrgy:id/textView47")
     WebElement cariKosanText;
 
+    @FindBy(id = "com.example.fpsynrgy:id/profileFragment")
+    WebElement menuProfile;
+
     public void onHomePage() {
         var text = cariKosanText.getText();
 
         Assert.assertEquals(text, "Cari kosan terbaik dari kami");
+    }
+
+    public void goToProfile() {
+        menuProfile.click();
     }
 }
