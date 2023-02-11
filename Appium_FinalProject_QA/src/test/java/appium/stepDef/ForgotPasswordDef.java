@@ -27,10 +27,10 @@ public class ForgotPasswordDef extends BaseTest {
         fp.validateOnLupaPasswordPage();
     }
 
-    @And("User input Email {string} on Lupa Password form")
-    public void inputEmail(String email) {
-        fp.inputEmail(email);
-    }
+//    @And("User input Email {string} on Lupa Password form")
+//    public void inputEmail(String email) {
+//        fp.inputEmail(email);
+//    }
 
     @And("User click Kirim Link Reset button")
     public void clickKirimLinkBtn() {
@@ -40,5 +40,10 @@ public class ForgotPasswordDef extends BaseTest {
     @And("User see success message")
     public void successMsg() {
         System.out.println("seharusnya validasi, tp blm bisa");
+    }
+
+    @And("User input Email {string} on Lupa Password form")
+    public void userInputEmailEmailOnLupaPasswordForm(String email) {
+        fp.inputEmail(email);
     }
 }
