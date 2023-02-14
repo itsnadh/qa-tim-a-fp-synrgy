@@ -19,7 +19,7 @@ public class LoginDef extends BaseTest {
         wp.validateOnWelcomePage();
     }
 
-    @And("User click Penyedia kos")
+    @And("User click Pencari kos")
     public void loginAsSeeker() {
         wp.loginAsSeeker();
     }

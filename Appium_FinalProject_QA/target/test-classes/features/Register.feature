@@ -4,7 +4,7 @@
 
    Background: Register
         Given User is on Welcome page
-        When User click Penyedia kos
+        When User click Pencari kos
         And User is on Login page
         And User click Daftar Yuk!
         And User is on Register page

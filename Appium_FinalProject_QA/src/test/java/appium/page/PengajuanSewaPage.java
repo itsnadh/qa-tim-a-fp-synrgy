@@ -1,5 +1,7 @@
 package appium.page;
 
+import appium.BaseTest;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.WebElement;
@@ -8,24 +10,26 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import appium.BaseTest;
 
-public class ProfilePage extends BaseTest {
-
+public class PengajuanSewaPage extends BaseTest {
     public AppiumDriver<MobileElement> driverPage;
 
-    public ProfilePage() {
+    public PengajuanSewaPage() {
         this.driverPage = driver;
         PageFactory.initElements(driverPage, this);
     }
 
-    @FindBy(id = "com.example.fpsynrgy:id/textView21")
-    WebElement profileText;
-    @FindBy(id = "com.example.fpsynrgy:id/ctaLogout")
-    WebElement logoutBtn;
+    @FindBy(id = "com.example.fpsynrgy:id/textView18")
+    WebElement pengajuanText;
 
-    public void onProfilePage(){
-        profileText.isDisplayed();
+    @FindBy(id = "com.example.fpsynrgy:id/btnSubmit")
+    WebElement ajukanSewaBtn;
+
+    public void onPengajuanSewaPage() {
+        pengajuanText.isDisplayed();
     }
-    public void clickLogout() {
-        logoutBtn.click();
+
+    public void clickSewaBtn() {
+        ajukanSewaBtn.click();
     }
+
 }
