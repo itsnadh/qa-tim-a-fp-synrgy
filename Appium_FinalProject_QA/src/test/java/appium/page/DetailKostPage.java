@@ -41,7 +41,7 @@ public class DetailKostPage extends BaseTest {
                 pilihBtn.click();
                 param = false;
             } catch (Exception e) {
-                scrollDisplay(this.driverPage, size.width / 2, size.height / 2, size.width / 2, (int) (size.height * 0.2));
+                scrollDisplay(this.driverPage, size.width / 2, size.height / 2, size.width / 2, (int) (size.height * 0.4));
             }
         }
     }

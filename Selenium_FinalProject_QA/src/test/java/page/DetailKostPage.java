@@ -28,6 +28,7 @@ public class DetailKostPage {
     }
 
     public void clickPilihTipeKost() {
+
         driver.findElement(pilihTipeBtn).click();
     }
 

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+// import com.github.javaker.Faker;
 
 public class RegisterPage {
     WebDriver driver;
@@ -47,7 +48,7 @@ public class RegisterPage {
     }
 
     public void inputEmail() {
-        driver.findElement(email).sendKeys("lalatenant@mail.com");
+        driver.findElement(email).sendKeys("lala_tenant@mail.com");
     }
 
     public void inputPassword() {
