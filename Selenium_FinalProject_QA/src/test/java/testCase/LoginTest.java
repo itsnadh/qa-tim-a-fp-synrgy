@@ -1,4 +1,5 @@
 package testCase;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;
@@ -22,32 +23,43 @@ public class LoginTest {
 
     WebDriver driver;
 
-//    @Rule
-//    public ExpectedException expectedEx = ExpectedException.none();
-//    @BeforeTest
-//    @Parameters("browser")
-//    public void setup(@Optional("Chrome")String browser) throws InterruptedException {
-//        if (browser.equalsIgnoreCase("Chrome")) {
-//            System.out.println("==========Browser is launching==========");
-//            ChromeOptions options = new ChromeOptions();
-//            WebDriverManager.chromedriver().setup();
-//            options.addArguments("--headless");
-//            driver = new ChromeDriver(options);
-//            driver.manage().window().maximize();
-//            driver.manage().timeouts().implicitlyWait(8, SECONDS);
-//        } else if (browser.equalsIgnoreCase("Firefox")) {
-//            System.out.println("==========Browser is launching==========");
-//            FirefoxOptions options = new FirefoxOptions();
-//            WebDriverManager.firefoxdriver().setup();
-//            options.addArguments("--headless");
-//            driver = new FirefoxDriver(options);
-//            driver.manage().window().maximize();
-//            driver.manage().timeouts().implicitlyWait(8, SECONDS);
-//        }
-//    }
+    // @Rule
+    // public ExpectedException expectedEx = ExpectedException.none();
+    // @BeforeTest
+    // @Parameters("browser")
+    // public void setup(@Optional("Chrome")String browser) throws
+    // InterruptedException {
+    // if (browser.equalsIgnoreCase("Chrome")) {
+    // System.out.println("==========Browser is launching==========");
+    // ChromeOptions options = new ChromeOptions();
+    // WebDriverManager.chromedriver().setup();
+    // options.addArguments("--headless");
+    // driver = new ChromeDriver(options);
+    // driver.manage().window().maximize();
+    // driver.manage().timeouts().implicitlyWait(8, SECONDS);
+    // } else if (browser.equalsIgnoreCase("Firefox")) {
+    // System.out.println("==========Browser is launching==========");
+    // FirefoxOptions options = new FirefoxOptions();
+    // WebDriverManager.firefoxdriver().setup();
+    // options.addArguments("--headless");
+    // driver = new FirefoxDriver(options);
+    // driver.manage().window().maximize();
+    // driver.manage().timeouts().implicitlyWait(8, SECONDS);
+    // }
+    // }
+
+    @BeforeMethod
+    public void setup() {
+        System.out.println("==========Browser is launching==========");
+        driver = WebDriverManager.chromedriver().create();
+        driver.get("https://frontend-fsw-testing.vercel.app/login");
+        // driver.get("https://frontend-fsw-testing.vercel.app/login/superadmin");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(8, SECONDS);
+    }
 
     @Test(priority = 1)
-    public void loginAsSeeker() throws InterruptedException {
+    public void loginLogoutAsSeeker() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         Thread.sleep(2000);
         loginPage.clickLoginCTA();
@@ -63,10 +75,13 @@ public class LoginTest {
         Thread.sleep(5000);
         assertEquals(driver.getCurrentUrl(), "https://frontend-fsw-testing.vercel.app/");
         Thread.sleep(2000);
+        loginPage.logOut();
+        Thread.sleep(3000);
+        assertEquals(driver.getCurrentUrl(), "https://frontend-fsw-testing.vercel.app/");
     }
 
     @Test(priority = 2)
-    public void loginAsTenant() throws InterruptedException{
+    public void loginLogoutAsTenant() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         Thread.sleep(2000);
         loginPage.clickLoginCTA();
@@ -82,27 +97,33 @@ public class LoginTest {
         Thread.sleep(5000);
         assertEquals(driver.getCurrentUrl(), "https://frontend-fsw-testing.vercel.app/penyewa");
         Thread.sleep(2000);
-    }
-
-    @Test(priority = 3)
-    public void logOutFromSeeker() throws InterruptedException{
-        LoginPage loginPage = new LoginPage(driver);
-        loginAsSeeker();
         loginPage.logOut();
         Thread.sleep(3000);
         assertEquals(driver.getCurrentUrl(), "https://frontend-fsw-testing.vercel.app/");
     }
 
-    @Test(priority = 4)
-    public void logOutFromTenant() throws InterruptedException{
-        LoginPage loginPage = new LoginPage(driver);
-        loginAsTenant();
-        loginPage.logOut();
-        Thread.sleep(3000);
-        assertEquals(driver.getCurrentUrl(), "https://frontend-fsw-testing.vercel.app/");
-    }
-    @AfterTest
-    public void quit(){
+    // @Test(priority = 3)
+    // public void logOutFromSeeker() throws InterruptedException {
+    // LoginPage loginPage = new LoginPage(driver);
+    // loginAsSeeker();
+    // loginPage.logOut();
+    // Thread.sleep(3000);
+    // assertEquals(driver.getCurrentUrl(),
+    // "https://frontend-fsw-testing.vercel.app/");
+    // }
+
+    // @Test(priority = 4)
+    // public void logOutFromTenant() throws InterruptedException {
+    // LoginPage loginPage = new LoginPage(driver);
+    // loginAsTenant();
+    // loginPage.logOut();
+    // Thread.sleep(3000);
+    // assertEquals(driver.getCurrentUrl(),
+    // "https://frontend-fsw-testing.vercel.app/");
+    // }
+
+    @AfterMethod
+    public void quit() {
         driver.quit();
     }
 }
