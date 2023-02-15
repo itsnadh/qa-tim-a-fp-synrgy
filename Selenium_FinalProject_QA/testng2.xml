@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="All Test Suite" thread-count="1" parallel="tests">
     <test name="Firefox Test">
         <parameter name="browser" value="Firefox"/>
             <classes>
@@ -9,7 +9,6 @@
                 <class name="testCase.RegisterTest"/>
                 <class name="testCase.UsersSuperadminTest"/>
             </classes>
-<!--        </parameter>-->
     </test>
 
     <test name="Chrome Test">
@@ -20,6 +19,5 @@
                 <class name="testCase.RegisterTest"/>
                 <class name="testCase.UsersSuperadminTest"/>
             </classes>
-<!--        </parameter>-->
     </test>
 </suite>

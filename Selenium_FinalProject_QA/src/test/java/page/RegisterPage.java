@@ -8,7 +8,8 @@ import org.openqa.selenium.WebElement;
 public class RegisterPage {
     WebDriver driver;
 
-    // define variable first name, last name, phone number, email, pass, confirm pass, regist btn
+    // define variable first name, last name, phone number, email, pass, confirm
+    // pass, regist btn
     By pencariKos = By.xpath("//*[@id=\"root\"]/div[2]/div/div[1]/a/p");
     By penyediaKos = By.xpath("//*[@id=\"root\"]/div[2]/div/div[2]/a/p");
     By firstName = By.id("formBasicFirstName");
@@ -19,42 +20,50 @@ public class RegisterPage {
     By confirmPass = By.id("formBasicverofPassword");
     By registerBtn = By.xpath("//button[@type=\"submit\" and text()=\"Register\"]");
 
-    public RegisterPage(WebDriver driver){
+    public RegisterPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    //define methods
+    // define methods
 
-    public void registAsSeeker(){
+    public void registAsSeeker() {
         driver.findElement(pencariKos).click();
     }
-    public void registAsTenant(){
+
+    public void registAsTenant() {
         driver.findElement(penyediaKos).click();
     }
-    public void inputFirstName(){
+
+    public void inputFirstName() {
         driver.findElement(firstName).sendKeys("Lala");
     }
-    public void inputLastName(){
+
+    public void inputLastName() {
         driver.findElement(lastName).sendKeys("Lili");
     }
-    public void inputPhoneNumber(){
+
+    public void inputPhoneNumber() {
         driver.findElement(phoneNumber).sendKeys("083456789012");
     }
-    public void inputEmail(){
+
+    public void inputEmail() {
         driver.findElement(email).sendKeys("lalatenant@mail.com");
     }
-    public void inputPassword(){
+
+    public void inputPassword() {
         driver.findElement(password).sendKeys("12345678");
     }
-    public void inputConfirmPassword(){
+
+    public void inputConfirmPassword() {
         driver.findElement(confirmPass).sendKeys("12345678");
     }
+
     public void clickRegistrationBtn() throws InterruptedException {
         Boolean enable = driver.findElement(registerBtn).isEnabled();
         System.out.println("Registration btn is " + enable);
 
         WebElement myelement = driver.findElement(registerBtn);
-        JavascriptExecutor jse2 = (JavascriptExecutor)driver;
+        JavascriptExecutor jse2 = (JavascriptExecutor) driver;
         jse2.executeScript("arguments[0].scrollIntoView()", myelement);
         System.out.println("web scrolled");
 

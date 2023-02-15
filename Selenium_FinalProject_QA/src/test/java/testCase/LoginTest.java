@@ -5,13 +5,16 @@ import org.junit.rules.ExpectedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
 import page.LoginPage;
+
+import java.time.Duration;
+
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -19,29 +22,29 @@ public class LoginTest {
 
     WebDriver driver;
 
-    @Rule
-    public ExpectedException expectedEx = ExpectedException.none();
-    @BeforeTest
-    @Parameters("browser")
-    public void setup(String browser) throws InterruptedException {
-        if (browser.equalsIgnoreCase("Chrome")) {
-            System.out.println("==========Browser is launching==========");
-            ChromeOptions options = new ChromeOptions();
-            WebDriverManager.chromedriver().setup();
-            options.addArguments("--headless");
-            driver = new ChromeDriver(options);
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(8, SECONDS);
-        } else if (browser.equalsIgnoreCase("Firefox")) {
-            System.out.println("==========Browser is launching==========");
-            FirefoxOptions options = new FirefoxOptions();
-            WebDriverManager.firefoxdriver().setup();
-            options.addArguments("--headless");
-            driver = new FirefoxDriver(options);
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(8, SECONDS);
-        }
-    }
+//    @Rule
+//    public ExpectedException expectedEx = ExpectedException.none();
+//    @BeforeTest
+//    @Parameters("browser")
+//    public void setup(@Optional("Chrome")String browser) throws InterruptedException {
+//        if (browser.equalsIgnoreCase("Chrome")) {
+//            System.out.println("==========Browser is launching==========");
+//            ChromeOptions options = new ChromeOptions();
+//            WebDriverManager.chromedriver().setup();
+//            options.addArguments("--headless");
+//            driver = new ChromeDriver(options);
+//            driver.manage().window().maximize();
+//            driver.manage().timeouts().implicitlyWait(8, SECONDS);
+//        } else if (browser.equalsIgnoreCase("Firefox")) {
+//            System.out.println("==========Browser is launching==========");
+//            FirefoxOptions options = new FirefoxOptions();
+//            WebDriverManager.firefoxdriver().setup();
+//            options.addArguments("--headless");
+//            driver = new FirefoxDriver(options);
+//            driver.manage().window().maximize();
+//            driver.manage().timeouts().implicitlyWait(8, SECONDS);
+//        }
+//    }
 
     @Test(priority = 1)
     public void loginAsSeeker() throws InterruptedException {

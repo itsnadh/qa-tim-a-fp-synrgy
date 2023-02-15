@@ -2,7 +2,7 @@
 
 Feature: Logout
 
-    Scenario: Logout
+    Scenario Outline: Logout
         Given User is on Welcome page
         When User click Pencari kos
         And User is on Login page
@@ -13,7 +13,7 @@ Feature: Logout
         And User click Profile menu
         And User is on Profile menu
         And User click Log Out button
-        Then user is on Welcome page
+        Then User is on Welcome page
     Examples:
         | email             | password   |
         | "seeker@mail.com" | "password" |
